@@ -5,6 +5,7 @@ const bodyParser = require('body-parser');
 const passport = require('passport');
 const mailRoutes = require('./routes/mailRoutes');
 const exampleRoutes = require('./routes/exampleRoutes');
+const otpRoutes = require('./routes/otpRoutes');
 //const authRoutes = require('./routes/authRoutes');
 //const userRoutes = require('./routes/userRoutes');
 //const errorHandler = require('./utils/errorHandler');
@@ -24,8 +25,9 @@ app.use(passport.initialize());
 // Routes
 //app.use('/api/auth', authRoutes);
 //app.use('/api/users', userRoutes);
-app.use('/api/mail', mailRoutes);
 app.use('/', exampleRoutes);
+app.use('/api/mail', mailRoutes);
+app.use('/api/otp', otpRoutes);
 // Existing code
 
 

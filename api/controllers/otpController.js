@@ -1,6 +1,6 @@
 const crypto = require('crypto');
 const sendMail = require('../config/mail');
-const OTP = require('../models/OTP');
+//const OTP = require('../models/OTP');
 
 exports.generateOTP = async (req, res) => {
   const { email } = req.body;
@@ -8,8 +8,8 @@ exports.generateOTP = async (req, res) => {
 
   try {
     // Store OTP in memory or database
-    const otpEntry = new OTP({ email, otp });
-    await otpEntry.save();
+    //const otpEntry = new OTP({ email, otp });
+    //await otpEntry.save();
 
     // Send OTP via email
     await sendMail(email, 'Your OTP Code', `Your OTP code is ${otp}`);
