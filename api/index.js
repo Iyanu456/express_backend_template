@@ -3,6 +3,8 @@ const express = require('express');
 //const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const passport = require('passport');
+const mailRoutes = require('./routes/mailRoutes');
+const exampleRoutes = require('./routes/exampleRoutes');
 //const authRoutes = require('./routes/authRoutes');
 //const userRoutes = require('./routes/userRoutes');
 //const errorHandler = require('./utils/errorHandler');
@@ -22,6 +24,18 @@ app.use(passport.initialize());
 // Routes
 //app.use('/api/auth', authRoutes);
 //app.use('/api/users', userRoutes);
+app.use('/api/mail', mailRoutes);
+app.use('/', exampleRoutes);
+// Existing code
+
+
+// Routes
+//app.use('/api/auth', authRoutes);
+//app.use('/api/users', userRoutes);
+
+
+// Existing code
+
 
 // Error handling
 //app.use(errorHandler);
