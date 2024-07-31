@@ -12,7 +12,7 @@ exports.generateOTP = async (req, res) => {
     //await otpEntry.save();
 
     // Send OTP via email
-    await sendMail(email, 'Your OTP Code', `Your OTP code is ${otp}`);
+    await sendMail(email, 'OTP Verification Code - Legacy Videobooks', `Your OTP Password reset code is <b>${otp}</b>`);
 
     res.status(200).json({ msg: 'OTP sent successfully' });
   } catch (error) {
