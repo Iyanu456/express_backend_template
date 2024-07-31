@@ -15,8 +15,8 @@ const hostinger_transporter = nodemailer.createTransport({
   port: 587, // SMTP port
   secure: false, // true for 465, false for other ports
   auth: {
-    user: process.env.EMAIL_USER, // Your email address
-    pass: process.env.EMAIL_PASS // Your email password
+    user: process.env.HOSTINGER_EMAIL_USER, // Your email address
+    pass: process.env.HOSTINGER_EMAIL_PASS // Your email password
   },
   tls: {
     rejectUnauthorized: false // Disable certificate validation (useful for testing)
@@ -36,7 +36,7 @@ const sendMail = async (to, subject, text) => {
 
 
   const mailOptions = { 
-    from: "admin@legacyvideobooks.io", 
+    from: "legacyvideobooks@legacyvideobooks.io", 
     to: to, 
     subject: subject, 
     text: text, 
