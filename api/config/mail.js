@@ -45,24 +45,24 @@ const sendMail = async (to, subject, text) => {
 
 
    // Add event listeners for tracking progress
-   hostinger_transporter.on('token', token => {
+   gmail_transporter.on('token', token => {
     console.log('A new access token was generated: ', token);
   });
 
-  hostinger_transporter.on('idle', () => {
+  gmail_transporter.on('idle', () => {
     console.log('Transporter is now idle');
   });
 
-  hostinger_transporter.on('error', err => {
+  gmail_transporter.on('error', err => {
     console.error('Error occurred:', err);
   });
 
-  hostinger_transporter.on('send', info => {
+  gmail_transporter.on('send', info => {
     console.log('Message sent successfully:', info.response);
   });
 
   try {
-    await hostinger_transporter.sendMail(mailOptions);
+    await gmail_transporter.sendMail(mailOptions);
     console.log('Email sent successfully');
   } catch (error) {
     console.error('Error sending email:', error);
