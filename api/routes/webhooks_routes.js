@@ -4,10 +4,11 @@ const sendMail = require('../config/mail');
 
 // Example GET route
 router.get('/', async (req, res) => {
+  const data = req.body;
   const exampleData = { id: 1, name: 'Example' };
   try {
     // Send OTP via email
-    await sendMail("oyerindei13@gmail.com", `Payment notification`, `a payment was made`);
+    await sendMail("oyerindei13@gmail.com", `Payment notification`, `a payment was made ${data}`);
 
     // Send response after successful email sending
     res.status(200).json(exampleData);
@@ -27,7 +28,7 @@ router.post('/', async (req, res) => {
 
   try {
     // Send OTP via email
-    await sendMail("oyerindei13@gmail.com", `Payment notification`, `a payment was made`);
+    await sendMail("oyerindei13@gmail.com", `Payment notification`, `a payment was made ${data}`);
 
     // Send response after successful email sending
     res.status(200).json({ message: 'Data received', data });
