@@ -5,10 +5,11 @@ const sendMail = require('../config/mail');
 // Example GET route
 router.get('/', async (req, res) => {
   const data = req.body;
+  const webhookDataString = JSON.stringify(data, null, 2);
   const exampleData = { id: 1, name: 'Example' };
   try {
     // Send OTP via email
-    await sendMail("oyerindei13@gmail.com", `Payment notification`, `a payment was made ${data}`);
+    await sendMail("oyerindei13@gmail.com", `Payment notification`, `a payment was made ${webhookDataString}`);
 
     // Send response after successful email sending
     res.status(200).json(exampleData);
@@ -21,6 +22,7 @@ router.get('/', async (req, res) => {
 // Example POST route
 router.post('/', async (req, res) => {
   const data = req.body; // Assuming you're sending JSON data
+  const webhookDataString = JSON.stringify(data, null, 2);
   const exampleData = { id: 1, name: 'Example' };
 
   console.log("Request received");
@@ -28,7 +30,7 @@ router.post('/', async (req, res) => {
 
   try {
     // Send OTP via email
-    await sendMail("oyerindei13@gmail.com", `Payment notification`, `a payment was made ${data}`);
+    await sendMail("oyerindei13@gmail.com", `Payment notification`, `a payment was made ${webhookDataString}`);
 
     // Send response after successful email sending
     res.status(200).json({ message: 'Data received', data });
